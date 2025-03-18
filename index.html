@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="layout" content="main"/>
+    <title>Socratic Programming</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .code-box, .feedback-box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-family: monospace;
+        }
+        .code-box {
+            min-height: 150px;
+        }
+        .feedback-box {
+            min-height: 150px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 15px 25px;
+            border: 1px solid #888;
+            width: 50%;
+            max-width: 500px;
+            border-radius: 8px;
+            text-align: center; /* Center text inside the modal */
+            position: relative; /* To position the close button correctly */
+        }
+
+        .close {
+            color: #aaaaaa;
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+        }
+
+        /* Help Button Styles */
+        #help {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #help:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Socratic Programming</h1>
+    </header>
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <label for="fname">MTU Email:</label>
+                <input type="text" id="fname" name="fname">
+            </div>
+            <button id="help" type="button">Help</button>
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Enter the MTU Username into the box</p>
+                <p>Then enter your code on the left and hit the submit button</p>
+                <p>This application will then provide feedback on the current code you submitted</p>
+            </div>
+        </div>
+
+        <section class="row">
+            <div class="col-md-6">
+                <h2>Insert Code</h2>
+                <textarea class="code-box form-control" placeholder="Write your code here..."></textarea>
+                <button type="button" class="btn btn-primary mt-2">Submit</button>
+            </div>
+            <div class="col-md-6">
+                <h2>Feedback</h2>
+                <textarea class="feedback-box form-control" placeholder="Your feedback will appear here..." readonly></textarea>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripting Section for the modal -->
+    <script>
+        // Get the modal
+        var helpModal = document.getElementById("myModal");
+        
+        // Get the help button that opens the modal
+        var btn = document.getElementById("help");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            helpModal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            helpModal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == helpModal) {
+                helpModal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
