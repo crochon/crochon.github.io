@@ -1,9 +1,11 @@
+<!-- CS 4760 Group 6 Socratic Programming Tutor -->
 <!doctype html>
 <html>
 <head>
     <meta name="layout" content="main"/>
     <title>Socratic Programming</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .code-box, .feedback-box {
             border: 1px solid #ccc;
@@ -89,7 +91,7 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <div>
-                <label for="fname">MTU Email:</label>
+                <label for="fname">MTU Username:</label>
                 <input type="text" id="fname" name="fname">
             </div>
             <button id="help" type="button">Help</button>
@@ -114,6 +116,7 @@
             </div>
             <div class="col-md-6">
                 <h2>Feedback</h2>
+
                 <textarea class="feedback-box form-control" placeholder="Your feedback will appear here..." readonly></textarea>
             </div>
         </section>
@@ -147,5 +150,20 @@
             }
         }
     </script>
+    <script>
+	function updateFeedback() {
+            // Use fetch to get data from a JSON file
+            fetch("feedback.json")
+                .then(response => response.json())
+                .then(data => {
+                    var feedbackVar = data.feedbackText;
+                    document.getElementById("feedback").value = feedbackVar;<!--THIS NEEDS TO BE THE NAME OF THE ELEMENT/VAR IN THE JSON FILE -JH -->
+                })
+                .catch(error => {
+                    console.error("Error loading feedback:", error);
+                });
+        }
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>

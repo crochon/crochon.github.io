@@ -1,0 +1,21 @@
+# 6-Programming-Tutor
+
+This application is desiged to work with an AI backend created by Professor Ureel to provide Socratic feedback to young programmers on how to improve their current code. 
+This will be done with a basic UI reflecting LeetCode, and pulling some History in a fashion that represents ChatGPT's history, for a basic understanding look.
+
+{
+    TEMPORARY CORS BYPASS:
+    create desktop shortcut to chrome with:
+
+    "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu    --user-data-dir=%LOCALAPPDATA%\Google\chromeTemp
+
+    (all one line)
+}
+
+Christopher Rochon,
+Chloe Scheetz,
+Fatima Morera Lohr,
+Joe Halcombe,
+Troy Muehlhausen,
+Scout Lex,
+Robin
